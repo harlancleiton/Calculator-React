@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FamiliaSilva from './components/FamiliaSilva';
 import Familia from './components/Familia';
 import MembroFamilia from './components/MembroFamilia';
+import ComponenteFuncional from './components/ComponenteFuncional';
 
 export default class App extends Component {
     render() {
@@ -17,6 +18,7 @@ export default class App extends Component {
                     <MembroFamilia name="Leia"></MembroFamilia>
                     <MembroFamilia name="Julie"></MembroFamilia>
                 </Familia>
+                <ComponenteFuncional></ComponenteFuncional>
             </div>
         );
     }
