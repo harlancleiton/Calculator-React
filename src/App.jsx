@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Calculator from "./main/Calculator";
 
-function App() {
-  return (
-      <div>
-        <h1>Hello World</h1>
-      </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+        <div>
+          <h1>Calculadora</h1>
+          <Calculator/>
+        </div>
+    );
+  }
 }
-
-export default App;
