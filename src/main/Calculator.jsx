@@ -3,17 +3,54 @@ import './Calculator.css';
 import Button from "../components/Button";
 import Display from "../components/Display";
 
+const initialState = {
+    displayValue: '0',
+    clearDisplay: false,
+    operation: undefined,
+    values: [0, 0],
+    current: 0
+};
+
 export default class Calculator extends Component {
+    state = {...initialState};
+
     clearMemory() {
-        console.log('clear');
+        this.setState({...initialState});
     }
 
     setOperation(operation) {
-        console.log(operation);
+        const {current} = this.state;
+        if (current === 0) {
+            this.setState({operation, current: 1, clearDisplay: true});
+        } else {
+            const {values} = this.state;
+            const equals = operation === '=';
+            const oldOperation = this.state.operation;
+            values[0] = eval(`${values[0]}${oldOperation}${values[1]}`);
+            values[1] = 0;
+            this.setState({
+                displayValue: values[0],
+                operation: equals ? null : operation,
+                current: equals ? 0 : 1,
+                values,
+                clearDisplay: !equals
+            });
+        }
     }
 
     addDigit(n) {
-        console.log(n);
+        const {displayValue, clearDisplay, current, values} = this.state;
+        if (n === '.' && displayValue.includes(n)) {
+            return;
+        }
+        const clear = clearDisplay || displayValue === '0';
+        const value = clear ? '' : displayValue;
+        const display = value + n;
+        this.setState({displayValue: display, clearDisplay: false});
+        if (n !== '.') {
+            values[current] = parseFloat(display);
+            this.setState({values});
+        }
     }
 
     render() {
@@ -21,7 +58,7 @@ export default class Calculator extends Component {
         const setOperation = operation => this.setOperation(operation);
         return (
             <div className="calculator">
-                <Display value={100}/>
+                <Display value={this.state.displayValue}/>
                 <Button onClick={this.clearMemory} label="AC" triple/>
                 <Button onClick={setOperation} label="/" operation/>
                 <Button onClick={addDigit} label="7"/>
