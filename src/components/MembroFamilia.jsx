@@ -6,11 +6,12 @@ export default class MembroFamilia extends Component {
     }
 
     render() {
-        const { name } = this.props;
+        const { name, sobrenome } = this.props;
         return (
             <div>
                 <span>Olá, </span>
                 <strong>{name}</strong>
+                <span className="sobrenome">{sobrenome}</span>
             </div>
         )
     }
