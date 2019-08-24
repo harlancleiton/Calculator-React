@@ -6,10 +6,12 @@ export default class Familia extends Component {
     }
 
     render() {
-        const { children } = this.props;
+        const { children, sobrenome } = this.props;
         return (
             <div>
-                {children}
+                {/* {children} */}
+                {/* {React.cloneElement(children, { children, sobrenome })} */}
+                {React.Children.map(children, son => React.cloneElement(son, { sobrenome }))}
             </div>
         )
     }

@@ -8,14 +8,14 @@ export default class App extends Component {
         return (
             <div>
                 <FamiliaSilva></FamiliaSilva>
-                <Familia>
+                {/* <Familia>
                     <MembroFamilia name="Harlan" sobrenome="Souza"></MembroFamilia>
                     <MembroFamilia name="Vanessa" sobrenome="Souza"></MembroFamilia>
                     <MembroFamilia name="Conça" sobrenome="Souza"></MembroFamilia>
-                </Familia>
-                <Familia>
-                    <MembroFamilia name="Leia" sobrenome="Au Au"></MembroFamilia>
-                    <MembroFamilia name="Julie" sobrenome="Au Au"></MembroFamilia>
+                </Familia> */}
+                <Familia sobrenome="Au Au">
+                    <MembroFamilia name="Leia"></MembroFamilia>
+                    <MembroFamilia name="Julie"></MembroFamilia>
                 </Familia>
             </div>
         );
