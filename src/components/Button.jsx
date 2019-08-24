@@ -2,15 +2,16 @@ import React, {Component} from 'react';
 import './Button.css';
 
 class Button extends Component {
-    constructor(props) {
-        super();
-    }
-
     render() {
-        const {label} = this.props;
+        const {label, operation, double, triple, onClick} = this.props;
 
         return (
-            <button className="button">{label}</button>
+            <button onClick={() => onClick ? onClick(label) : null}
+                    className={`button
+                ${operation ? 'operation' : ''}
+                ${double ? 'double' : ''}
+                ${triple ? 'triple' : ''}`}>
+                {label}</button>
         );
     }
 }
