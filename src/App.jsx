@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
+import FamiliaSilva from './components/FamiliaSilva';
 
 export default class App extends Component {
-
-    constructor(props) {
-        super();
-        console.log(props);
-    }
-
     render() {
         return (
             <div>
-                <h1>Hello, {this.props.name}</h1>
+                <FamiliaSilva></FamiliaSilva>
             </div>
         );
     }
